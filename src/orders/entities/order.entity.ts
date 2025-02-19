@@ -20,8 +20,8 @@ export enum OrderStatus {
 
 @Schema({ timestamps: true })
 export class Order {
-  @Prop({ default: () => crypto.randomUUID() })
-  _id: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, auto: true })
+  _id: mongoose.Schema.Types.ObjectId;
 
   @Prop({ type: mongoose.Schema.Types.Int32 })
   shares: number;

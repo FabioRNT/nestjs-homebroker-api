@@ -1,13 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
-import crypto from 'crypto';
+import mongoose, { HydratedDocument } from 'mongoose';
 
 export type AssetDocument = HydratedDocument<Asset>;
 
 @Schema({ timestamps: true })
 export class Asset {
-  @Prop({ default: () => crypto.randomUUID() })
-  _id: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, auto: true })
+  _id: mongoose.Schema.Types.ObjectId;
 
   @Prop({ unique: true, index: true })
   name: string;

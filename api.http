@@ -4,10 +4,10 @@ POST http://localhost:3000/assets
 Content-Type: application/json
 
 {
-  "name": "Amazon1",
-  "symbol": "A1",
+  "name": "Google",
+  "symbol": "GOOGL",
   "price": 100,
-  "image": "amzn.png"
+  "image": "GOOGL.png"
 }
 ###
 @assetId = {{createAsset.response.body._id}}

@@ -6,3 +6,12 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=root
     ports:
       - 27017:27017
+
+  nestjs-app:
+    build: .
+    environment:
+      - MONGO_URI=mongodb://root:root@mongo:27010
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo

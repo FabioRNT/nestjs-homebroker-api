@@ -9,7 +9,8 @@ import { OrdersModule } from './orders/orders.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb://root:root@localhost:27017/nest?authSource=admin&directConnection=true',
+      process.env.MONGO_URI ||
+        'mongodb://root:root@localhost:27017/nest?authSource=admin&directConnection=true',
     ),
     AssetsModule,
     WalletsModule,

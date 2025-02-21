@@ -7,10 +7,10 @@ services:
     ports:
       - 27017:27017
 
-  nestjs-app:
+  app:
     build: .
     environment:
-      - MONGO_URI=mongodb://root:root@mongo:27010
+      - MONGO_URI=mongodb://root:root@mongo:27017/nest?authSource=admin&directConnection=true
     ports:
       - 3000:3000
     depends_on:
